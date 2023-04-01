@@ -1,29 +1,26 @@
 package ru.synergy;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args){
 //Arrays
-        /*Cat[] cats = new Cat[3];
+        Cat[] cats = new Cat[3];
         cats[0] = new Cat("Томас");
         cats[1] = new Cat("Бегемот");
         cats[2] = new Cat("Филипп Маркович");
         //cats[3] = new Cat("Котяра"); // нельзя добавить запись т.к. размер массива 3
         //cats[0] = null; // можно присвоить нулевое значение
-        System.out.println(Arrays.toString(cats));*/
+        System.out.println(Arrays.toString(cats));
 
 // создаем динамический массив
-       /* ArrayList<Cat> catsList = new ArrayList<>();
+        ArrayList<Cat> catsList = new ArrayList<>();
         for (Cat cat : cats){
             catsList.add(cat);
         }
 
-        catsList.add(new Cat("Бегемот2"));// добовляет запись в массив
-        catsList.remove(1); // удаляем запись из массива
+        catsList.add(new Cat("Бегемот"));// добовляет запись в массив
+        //catsList.remove(1); // удаляем запись из массива
 
         Cat cat = catsList.get(0);
         System.out.println(cat);
@@ -32,11 +29,11 @@ public class Main {
         catsList.add(2, cat);
         catsList.set(2, new Cat("Меня сюда вставили"));
 
-        catsList.removeAll(Arrays.asList(cat, catsList.get(3))); // удаляет выбранный записи
+        //catsList.removeAll(Arrays.asList(cat, catsList.get(3))); // удаляет выбранные записи
         // как по имени переменной так и по индексу
 
         System.out.println(catsList.toString());
-        System.out.println(catsList.size());*/
+        System.out.println(catsList.size());
 
 // LinkedList
        /* String str1 = new String("Hello world");
@@ -76,7 +73,7 @@ public class Main {
         System.out.println(cars);*/
 
 // ArrayList vs LinkedList
-        List<Integer> list = new LinkedList<>();
+       /* List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 5000000; i++){
             list.add(new Integer(i));
         }
@@ -97,6 +94,30 @@ public class Main {
         }
 
         System.out.println("Время работы для ArrayList в (миллисекундах)"
-                + (System.currentTimeMillis() - start));
+                + (System.currentTimeMillis() - start));*/
+
+// Set / HashSet
+        Set<String> states = new HashSet<>();
+        states.add("Germany");
+        states.add("France");
+        states.add("Italy");
+
+        boolean isAdded = states.add("Italy");
+        System.out.println("Italy is added: " + isAdded);
+        System.out.println("Set contains: " + states.size());
+        System.out.println(states);
+
+        states.remove("Germany");
+        System.out.println(states);
+
+        HashSet<Cat> catsHashSet = new HashSet<>(catsList);
+        System.out.println(catsHashSet);
+
+        TreeSet<Cat> catsTreeSet = new TreeSet<>(catsList);
+        System.out.println(catsTreeSet);
+
+
+
+
     }
 }
